@@ -36,7 +36,7 @@ jobs:
       run:
         working-directory: docker/core
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Install deps into a venv (PATH-safe)
         run: |
@@ -111,7 +111,7 @@ jobs:
 
       - name: Upload mutation results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: mutation-results-${{ github.run_number }}
           path: /tmp/mutmut-results.txt
@@ -122,7 +122,7 @@ jobs:
     runs-on: [self-hosted, dominus]
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Run probe against live stack
         run: |
@@ -150,7 +150,7 @@ jobs:
 
       - name: Upload perf artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: perf-nightly-${{ github.run_number }}
           path: |
@@ -163,7 +163,7 @@ jobs:
     runs-on: [self-hosted, dominus]
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Install trivy if missing (fs scan needs no Docker)
         # The upstream install.sh needs tooling this slim runner lacks, so
@@ -203,7 +203,7 @@ jobs:
 
       - name: Upload trivy results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: trivy-nightly-${{ github.run_number }}
           path: /tmp/trivy-deep.json

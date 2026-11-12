@@ -7,6 +7,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   test:
     name: Test Suite
@@ -16,7 +19,7 @@ jobs:
         working-directory: docker/core
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Install dependencies
         run: |
@@ -57,7 +60,7 @@ jobs:
         working-directory: docker/core
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Install dependencies
         run: |
@@ -75,7 +78,7 @@ jobs:
         working-directory: docker/core
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Install dependencies
         run: |
@@ -94,7 +97,7 @@ jobs:
         working-directory: docker/core
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Install scanners
         run: |
@@ -115,7 +118,7 @@ jobs:
     runs-on: [self-hosted, dominus]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Trivy image scan (HIGH+CRITICAL block)
         # Requires Docker. This self-hosted runner is a lightweight, non-root
@@ -147,7 +150,7 @@ jobs:
       run:
         working-directory: docker/core
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Install dependencies
         run: |
